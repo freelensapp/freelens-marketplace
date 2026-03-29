@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "version": 0
+  },
   "packages": [
     {
       "name": "@freelensapp/core",
@@ -186,7 +189,6 @@
       "version": "1.7.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/react-application",
       "description": "Package for React Application",
@@ -223,7 +225,6 @@
       "version": "1.7.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/animate",
       "description": "Highly extendable animate in the Freelens.",
@@ -278,7 +279,6 @@
       "version": "1.7.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/run-many",
       "description": "A package containing runMany and runManySync",
@@ -291,7 +291,6 @@
       "version": "1.7.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/test-utils",
       "description": "A collection of utilities for testing",
@@ -304,21 +303,18 @@
       "version": "1.7.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/computed-channel",
       "description": "MobX-like computed between channels",
       "version": "1.7.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/kubernetes-client-node",
       "description": "Kubernetes client for Freelens",
       "version": "1.7.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/extension-example",
       "description": "Example of a Freelens extension (renamed to @freelensapp/example-extension)",
@@ -331,35 +327,30 @@
       "version": "1.7.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/extension-fluxcd",
       "description": "Freelens extension for FluxCD",
       "version": "3.2.0",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/example-extension",
       "description": "Example of a Freelens extension",
       "version": "1.6.2",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/ai-extension",
       "description": "AI capabilities for Freelens",
       "version": "0.4.1",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/fluxcd-extension",
       "description": "Freelens extension for FluxCD",
       "version": "5.2.1",
       "status": "official"
     },
-
     {
       "name": "@freelensapp/generate-license",
       "description": "CLI for generating license files",
