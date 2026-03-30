@@ -20,6 +20,12 @@
       "description": "See expire date from certificates inside kubernetes secrets.",
       "version": "4.3.4",
       "status": "community"
+    },
+    {
+      "name": "@omarluq/freelens-duplicate-extension",
+      "description": "🗐 Create duplicate k8s resources from freelens",
+      "version": "1.0.0",
+      "status": "community"
     }
   ]
 }
