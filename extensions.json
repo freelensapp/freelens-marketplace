@@ -2,7 +2,7 @@
   "meta": {
     "version": 0
   },
-  "packages": [
+  "extensions": [
     {
       "name": "@freelensapp/core",
       "description": "Freelens Core",
