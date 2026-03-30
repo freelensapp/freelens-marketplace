@@ -26,6 +26,12 @@
       "description": "🗐 Create duplicate k8s resources from freelens",
       "version": "1.0.0",
       "status": "community"
+    },
+    {
+      "name": "@ottimis/freelens-version-update",
+      "description": "Lens extension to simplify update of deployment image tag",
+      "version": "1.1.0",
+      "status": "community"
     }
   ]
 }
