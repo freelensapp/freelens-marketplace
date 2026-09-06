@@ -61,7 +61,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: extensions-json
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }}/extensions.json
 
       - name: Commit if changed
         run: |
