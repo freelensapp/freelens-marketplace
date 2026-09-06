@@ -24,9 +24,9 @@ jobs:
     name: Validate manifests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "26.8.1"
           cache: npm
@@ -38,7 +38,7 @@ jobs:
         run: npm run build
 
       - name: Upload extensions.json artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: extensions-json
           path: extensions.json
@@ -52,20 +52,20 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Download extensions.json artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: extensions-json
           path: ${{ github.workspace }}
 
       - name: Commit if changed
         run: |
-          if git diff --quiet extensions.json; then
+          if git diff --quiet HEAD -- extensions.json; then
             echo "extensions.json unchanged, nothing to commit."
             exit 0
           fi
