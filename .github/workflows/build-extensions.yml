@@ -70,6 +70,4 @@ jobs:
           git add extensions.json
           if git commit -m "chore: regenerate extensions.json"; then
             git push
-          else
-            echo "nothing to commit, working tree clean"
           fi
