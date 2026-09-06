@@ -4,10 +4,25 @@
   },
   "extensions": [
     {
+      "name": "@freelensapp/agentbridge-extension",
+      "description": "Bring an AI coding agent into every Kubernetes cluster you manage — without leaving Freelens.",
+      "status": "official",
+      "version": "1.0.0",
+      "repository": "https://github.com/freelensapp/freelens-agentbridge-extension",
+      "authors": [
+        {
+          "name": "Leopoldo",
+          "surname": "Capuano",
+          "github": "https://github.com/leo-capvano"
+        }
+      ]
+    },
+    {
       "name": "@freelensapp/ai-extension",
       "description": "Automate complex tasks and enhance productivity through GenAI & LLMs.",
       "status": "official",
       "version": "0.7.1",
+      "repository": "https://github.com/freelensapp/freelens-ai-extension",
       "authors": [
         {
           "name": "Leopoldo",
