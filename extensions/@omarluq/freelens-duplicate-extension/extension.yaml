@@ -1,0 +1,12 @@
+name: "@omarluq/freelens-duplicate-extension"
+description: "Create duplicate Kubernetes resources from Freelens."
+status: community
+version: "1.0.0"
+repository: "https://github.com/omarluq/freelens-duplicate-extension"
+authors: [
+  {
+    name: "Omar",
+    surname: "Alani",
+    github: "https://github.com/omarluq"
+  }
+]

@@ -1,0 +1,4 @@
+name: "lens-certificate-info"
+description: "See expire date from certificates inside Kubernetes secrets."
+status: community
+version: "4.3.4"
