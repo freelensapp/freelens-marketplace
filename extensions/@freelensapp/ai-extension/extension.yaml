@@ -2,6 +2,7 @@ name: "@freelensapp/ai-extension"
 description: "Automate complex tasks and enhance productivity through GenAI & LLMs."
 status: official
 version: "0.7.1"
+repository: "https://github.com/freelensapp/freelens-ai-extension"
 authors: [
   {
     name: "Leopoldo",
