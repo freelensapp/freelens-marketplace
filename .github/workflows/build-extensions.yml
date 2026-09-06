@@ -65,10 +65,6 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet extensions.json; then
-            echo "extensions.json unchanged, nothing to commit."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add extensions.json
