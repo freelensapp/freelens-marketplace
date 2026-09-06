@@ -1,0 +1,76 @@
+name: Build extensions.json
+
+on:
+  pull_request:
+    paths:
+      - "extensions/**"
+      - "schema/**"
+      - "scripts/**"
+      - ".github/workflows/build-extensions.yml"
+      - "package.json"
+      - "package-lock.json"
+  push:
+    branches: [main]
+    paths:
+      - "extensions/**"
+      - "schema/**"
+      - "scripts/**"
+      - ".github/workflows/build-extensions.yml"
+      - "package.json"
+      - "package-lock.json"
+
+jobs:
+  validate:
+    name: Validate manifests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "26.8.1"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (validate + regenerate)
+        run: npm run build
+
+      - name: Upload extensions.json artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: extensions-json
+          path: extensions.json
+          retention-days: 1
+
+  commit:
+    name: Commit extensions.json
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Download extensions.json artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: extensions-json
+          path: ${{ github.workspace }}
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet extensions.json; then
+            echo "extensions.json unchanged, nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add extensions.json
+          git commit -m "chore: regenerate extensions.json"
+          git push

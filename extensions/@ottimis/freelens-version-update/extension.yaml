@@ -1,0 +1,5 @@
+name: "@ottimis/freelens-version-update"
+description: "Simplify update of deployment image tag (containers and initContainers)."
+status: community
+version: "1.1.0"
+repository: "https://github.com/ottimis/freelens-version-update"
