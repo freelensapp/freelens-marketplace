@@ -63,7 +63,7 @@ jobs:
           name: extensions-json
           path: ${{ github.workspace }}
 
-      - name: Commit if changed
+      - name: Commit extensions.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
