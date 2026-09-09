@@ -1,0 +1,12 @@
+name: "freelens-resource-filter-extension"
+description: "Field-based filtering for any Kubernetes resource kind, including CRDs, with per-kind persistence and saved filter sets."
+status: community
+version: "0.2.0"
+repository: "https://github.com/mojish/freelens-resource-filter-extension"
+authors: [
+  {
+    name: "Mojtaba",
+    surname: "Shahbazi",
+    github: "https://github.com/mojish"
+  }
+]
