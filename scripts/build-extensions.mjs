@@ -2,7 +2,7 @@
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join, relative, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import yaml from "js-yaml";
+import { load } from "js-yaml";
 import Ajv from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 
@@ -33,7 +33,7 @@ function loadSchema() {
 
 function loadManifest(path) {
   const raw = readFileSync(path, "utf8");
-  return yaml.load(raw);
+  return load(raw);
 }
 
 function main() {
