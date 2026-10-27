@@ -20,6 +20,12 @@ each `extension.yaml` and opens a PR when the npm version changes.
 3. Open a PR. The CI will validate the manifest and (on merge to `main`)
    regenerate `extensions.json`.
 
+## Updating an extension
+
+After publishing a new version to npm, update `version` in the extension's
+`extension.yaml` and open a PR. The workflow regenerates `extensions.json`
+after merge; it does not need to be edited in the PR.
+
 ## Schema
 
 `lens-extension/v1`. See `schema/lens-extension.schema.json`.
