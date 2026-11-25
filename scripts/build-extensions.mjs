@@ -12,6 +12,7 @@ const EXTENSIONS_DIR = join(REPO_ROOT, "extensions");
 const SCHEMA_PATH = join(REPO_ROOT, "schema", "lens-extension.schema.json");
 const OUTPUT_PATH = join(REPO_ROOT, "extensions.json");
 const SCHEMA_VERSION = "lens-extension/v1";
+const STATUS_ORDER = { official: 0, community: 1 };
 
 function findManifests(dir) {
   const out = [];
@@ -56,7 +57,12 @@ function main() {
     extensions.push(doc);
   }
 
-  extensions.sort((a, b) => a.name.localeCompare(b.name));
+  extensions.sort(
+    (a, b) =>
+      (STATUS_ORDER[a.status] ?? Number.MAX_SAFE_INTEGER) -
+        (STATUS_ORDER[b.status] ?? Number.MAX_SAFE_INTEGER) ||
+      a.name.localeCompare(b.name)
+  );
 
   const output = {
     meta: {

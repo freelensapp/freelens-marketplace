@@ -7,7 +7,7 @@
       "name": "@freelensapp/agentbridge-extension",
       "description": "Bring an AI coding agent into every Kubernetes cluster you manage — without leaving Freelens.",
       "status": "official",
-      "version": "1.0.0",
+      "version": "2.1.0",
       "repository": "https://github.com/freelensapp/freelens-agentbridge-extension",
       "authors": [
         {
@@ -21,7 +21,7 @@
       "name": "@freelensapp/ai-extension",
       "description": "Automate complex tasks and enhance productivity through GenAI & LLMs.",
       "status": "official",
-      "version": "0.7.1",
+      "version": "1.0.0",
       "repository": "https://github.com/freelensapp/freelens-ai-extension",
       "authors": [
         {
@@ -41,7 +41,25 @@
       "name": "@freelensapp/fluxcd-extension",
       "description": "Integrates FluxCD support.",
       "status": "official",
-      "version": "5.2.2"
+      "version": "6.1.0"
+    },
+    {
+      "name": "@freelensapp/kamaji-extension",
+      "description": "Freelens extension for Kamaji, the Kubernetes Control Plane Manager.",
+      "status": "official",
+      "version": "2.0.1"
+    },
+    {
+      "name": "@freelensapp/resource-map-extension",
+      "description": "Displays Kubernetes resources and their relations as a real-time force-directed graph.",
+      "status": "official",
+      "version": "2.0.0"
+    },
+    {
+      "name": "@andrea-falco/freelens-multi-pod-logs",
+      "description": "Enables you to see logs from multiple pods (and multiple containers within the pod) on Kubernetes.",
+      "status": "community",
+      "version": "1.0.1"
     },
     {
       "name": "@freelensapp/freelens-jobset-extension",
@@ -56,18 +74,6 @@
           "github": "https://github.com/mike-callahan"
         }
       ]
-    },
-    {
-      "name": "@freelensapp/kamaji-extension",
-      "description": "Freelens extension for Kamaji, the Kubernetes Control Plane Manager.",
-      "status": "official",
-      "version": "0.0.0"
-    },
-    {
-      "name": "@freelensapp/resource-map-extension",
-      "description": "Displays Kubernetes resources and their relations as a real-time force-directed graph.",
-      "status": "official",
-      "version": "0.0.0"
     },
     {
       "name": "@omarluq/freelens-duplicate-extension",
@@ -91,16 +97,10 @@
       "repository": "https://github.com/ottimis/freelens-version-update"
     },
     {
-      "name": "freelens-multi-pod-logs",
-      "description": "Enables you to see logs from multiple pods (and multiple containers within the pod) on Kubernetes.",
-      "status": "community",
-      "version": "0.0.0"
-    },
-    {
       "name": "freelens-resource-filter-extension",
       "description": "Field-based filtering for any Kubernetes resource kind, including CRDs, with per-kind persistence and saved filter sets.",
       "status": "community",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "repository": "https://github.com/mojish/freelens-resource-filter-extension",
       "authors": [
         {
@@ -114,7 +114,7 @@
       "name": "lens-certificate-info",
       "description": "See expire date from certificates inside Kubernetes secrets.",
       "status": "community",
-      "version": "4.3.4"
+      "version": "5.0.0"
     }
   ]
 }
