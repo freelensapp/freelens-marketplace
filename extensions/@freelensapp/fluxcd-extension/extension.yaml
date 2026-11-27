@@ -1,4 +1,4 @@
 name: "@freelensapp/fluxcd-extension"
 description: Integrates FluxCD support.
 status: official
-version: 6.1.0
+version: 6.2.0
