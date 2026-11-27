@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "node scripts/build-extensions.mjs",
+    "verify": "node scripts/verify-packages.mjs",
     "biome": "pnpm dlx @biomejs/biome@2.6.8",
     "biome:check": "pnpm biome check",
     "biome:fix": "pnpm biome check --fix",
