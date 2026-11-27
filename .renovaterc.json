@@ -103,10 +103,14 @@
       "enabled": false
     },
     {
-      "description": "Group the versions of the extensions in extension.yaml into one PR.",
+      "description": [
+        "Group the versions of the extensions in extension.yaml into one PR.",
+        "autoReplaceGlobalMatch: the matched text of the version also holds the `freelens:` range of the item, so the version is replaced at its first occurrence only; with the default, a bump of 2.0.0 would also rewrite a range ^2.0.0."
+      ],
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["extensions/**/extension.yaml"],
-      "groupName": "Freelens extensions"
+      "groupName": "Freelens extensions",
+      "autoReplaceGlobalMatch": false
     },
     {
       "description": "Non-major updates only.",
@@ -134,15 +138,16 @@
   "customManagers": [
     {
       "description": [
-        "The npm package and its version in extension.yaml.",
-        "The fields are matched separately and combined, as other fields lie between them. Both are anchored at the start of a line, so the name of an author, an item of the indentless authors sequence, does not match."
+        "The npm package of an extension.yaml and the version of the first item of its versions, the newest one.",
+        "The fields are matched separately and combined, as other fields lie between them. `package:` is anchored at a key of spec, indented by two spaces, so that no other key matches.",
+        "The version matches only in the first item, right after `versions:`, and only when the item ends after `freelens:`: an item with `url:` is not on npm, and older items serve older Freelens versions. RE2 has no lookahead, so the pattern consumes the start of the next line, and relies on the order of the keys of an item (version, freelens, url, integrity), which scripts/build-extensions.mjs enforces."
       ],
       "customType": "regex",
-      "managerFilePatterns": ["/^extensions/.+/extension\\.yaml$/"],
+      "managerFilePatterns": ["/^extensions/[^/]+/extension\\.yaml$/"],
       "matchStringsStrategy": "combination",
       "matchStrings": [
-        "(?:^|\\n)name:\\s*[\"']?(?<depName>[^\"'\\s]+)[\"']?\\s*(?:\\n|$)",
-        "(?:^|\\n)version:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?\\s*(?:\\n|$)"
+        "\\n  package:[ \\t]*[\"']?(?<depName>[^\"'\\s]+)[\"']?[ \\t]*\\n",
+        "\\n  versions:[ \\t]*\\n  - version:[ \\t]*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?[ \\t]*\\n    freelens:[^\\n]*(?:\\n+(?:  [^ ]|[^ \\n])|\\n*$)"
       ],
       "datasourceTemplate": "npm",
       "versioningTemplate": "npm"
