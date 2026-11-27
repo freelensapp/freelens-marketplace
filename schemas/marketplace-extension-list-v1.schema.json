@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-list-v1.schema.json",
+  "title": "Freelens marketplace extension list",
+  "description": "The list of the entries of the Freelens marketplace, extensions.json, apiVersion freelens.app/v1",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "type": "string",
+      "const": "freelens.app/v1"
+    },
+    "kind": {
+      "type": "string",
+      "const": "MarketplaceExtensionList"
+    },
+    "items": {
+      "type": "array",
+      "description": "The entries, official first, then by metadata.name",
+      "items": {
+        "$ref": "marketplace-extension-v1.schema.json"
+      }
+    }
+  },
+  "required": ["apiVersion", "kind", "items"],
+  "additionalProperties": false
+}

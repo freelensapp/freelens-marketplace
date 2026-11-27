@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: fluxcd
+spec:
+  displayName: FluxCD
+  summary: Integrates FluxCD support.
+  tier: official
+  package: "@freelensapp/fluxcd-extension"
+  versions:
+  - version: 6.2.0
+    freelens: ^2.0.0
+  homepage: https://github.com/freelensapp/freelens-fluxcd-extension
+  repository: https://github.com/freelensapp/freelens-fluxcd-extension
+  license: MIT

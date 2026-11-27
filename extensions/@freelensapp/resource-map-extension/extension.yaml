@@ -1,4 +1,0 @@
-name: "@freelensapp/resource-map-extension"
-description: Displays Kubernetes resources and their relations as a real-time force-directed graph.
-status: official
-version: 2.0.0

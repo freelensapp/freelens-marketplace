@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: certificate-info
+spec:
+  displayName: Certificate Info
+  summary: See expire date from certificates inside Kubernetes secrets.
+  tier: community
+  package: lens-certificate-info
+  versions:
+  - version: 5.0.0
+    freelens: ^2.0.0
+  homepage: https://github.com/jkroepke/lens-extension-certificate-info
+  repository: https://github.com/jkroepke/lens-extension-certificate-info
+  license: Apache-2.0

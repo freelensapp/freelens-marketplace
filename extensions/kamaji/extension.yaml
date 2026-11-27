@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: kamaji
+spec:
+  displayName: Kamaji
+  summary: Freelens extension for Kamaji, the Kubernetes Control Plane Manager.
+  tier: official
+  package: "@freelensapp/kamaji-extension"
+  versions:
+  - version: 2.0.1
+    freelens: ^2.0.0
+  homepage: https://github.com/freelensapp/freelens-kamaji-extension
+  repository: https://github.com/freelensapp/freelens-kamaji-extension
+  license: MIT

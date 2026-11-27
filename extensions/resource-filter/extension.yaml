@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: resource-filter
+spec:
+  displayName: Resource Filter
+  summary: Field-based filtering for any Kubernetes resource kind, including CRDs, with per-kind persistence and saved filter sets.
+  tier: community
+  package: freelens-resource-filter-extension
+  versions:
+  - version: 0.5.0
+    freelens: ^2.0.0
+  homepage: https://github.com/mojish/freelens-resource-filter-extension
+  repository: https://github.com/mojish/freelens-resource-filter-extension
+  license: MIT
+  authors:
+  - name: Mojtaba Shahbazi
+    url: https://github.com/mojish
