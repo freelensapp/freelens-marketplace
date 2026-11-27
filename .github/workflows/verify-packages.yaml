@@ -1,9 +1,7 @@
 name: Verify packages
 
-# Downloads the package of every item of versions that a PR adds or changes,
-# from npm or from its url, and checks it against the manifest: integrity, the
-# name and version of its package.json, and engines.freelens against the
-# freelens range. Not a required check, as it depends on npm and GitHub.
+# Not a required check, as it depends on npm and GitHub, so it may filter on
+# paths.
 on:
   pull_request:
     paths:
