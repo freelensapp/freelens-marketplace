@@ -15,6 +15,5 @@ spec:
   repository: https://github.com/omarluq/freelens-duplicate-extension
   license: MIT
   authors:
-  - name: Omar
-    surname: Alani
-    github: https://github.com/omarluq
+  - name: Omar Alani
+    url: https://github.com/omarluq

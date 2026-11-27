@@ -17,6 +17,5 @@ spec:
   repository: https://github.com/mike-callahan/freelens-jobset-extension
   license: MIT
   authors:
-  - name: Michael
-    surname: Callahan
-    github: https://github.com/mike-callahan
+  - name: Michael Callahan
+    url: https://github.com/mike-callahan

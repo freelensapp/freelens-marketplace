@@ -36,9 +36,8 @@ spec:
   license: MIT
   icon: icon.png
   authors:
-  - name: Jane
-    surname: Doe
-    github: https://github.com/jane-doe
+  - name: Jane Doe
+    url: https://github.com/jane-doe
 ```
 
 The file has the shape of a Kubernetes object, as the
@@ -58,19 +57,19 @@ validate the file and complete its fields.
 
 ## The fields of `spec`
 
-| Field         | Required | Shown in Freelens                 | Rules                                                                                       |
-| ------------- | -------- | --------------------------------- | ------------------------------------------------------------------------------------------- |
-| `displayName` | yes      | the card, the details             | one line                                                                                    |
-| `summary`     | yes      | the card                          | plain text, one line, at most 160 characters                                                |
-| `description` | no       | the details, rendered as Markdown | without it, the details show `summary`                                                      |
-| `tier`        | yes      | the card                          | `official` for the extensions of the Freelens organization, `community` for every other one |
-| `package`     | yes      | matching installed extensions     | the `name` in the `package.json` of the package, by which Freelens identifies extensions    |
-| `versions`    | yes      | install, compatibility filter     | newest first; see [Versions](#versions)                                                     |
-| `homepage`    | no       | the card under the icon, details  | an `https:` URL                                                                             |
-| `license`     | no       | the card, the details             | an [SPDX](https://spdx.org/licenses/) identifier, such as `MIT` or `Apache-2.0`             |
-| `icon`        | no       | the card                          | a PNG file in the directory of the entry; see [Icon](#icon)                                 |
-| `repository`  | no       | the details                       | an `https:` URL                                                                             |
-| `authors`     | no       | the details                       | each with `name`, and optionally `surname`, `github`, `website` and `email`                 |
+| Field         | Required | Shown in Freelens                 | Rules                                                                                            |
+| ------------- | -------- | --------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `displayName` | yes      | the card, the details             | one line                                                                                         |
+| `summary`     | yes      | the card                          | plain text, one line, at most 160 characters                                                     |
+| `description` | no       | the details, rendered as Markdown | without it, the details show `summary`                                                           |
+| `tier`        | yes      | the card                          | `official` for the extensions of the Freelens organization, `community` for every other one      |
+| `package`     | yes      | matching installed extensions     | the `name` in the `package.json` of the package, by which Freelens identifies extensions         |
+| `versions`    | yes      | install, compatibility filter     | newest first; see [Versions](#versions)                                                          |
+| `homepage`    | no       | the card under the icon, details  | an `https:` URL                                                                                  |
+| `license`     | no       | the card, the details             | an [SPDX](https://spdx.org/licenses/) identifier, such as `MIT` or `Apache-2.0`                  |
+| `icon`        | no       | the card                          | a PNG file in the directory of the entry; see [Icon](#icon)                                      |
+| `repository`  | no       | the details                       | an `https:` URL                                                                                  |
+| `authors`     | no       | the details                       | each with `name`, the full name, and optionally `email` and `url`, as a person in `package.json` |
 
 Two entries cannot have the same `package`.
 

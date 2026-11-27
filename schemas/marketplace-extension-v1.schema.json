@@ -157,24 +157,24 @@
       "additionalProperties": false
     },
     "Author": {
+      "description": "A person, as in the people fields of package.json",
       "type": "object",
       "properties": {
         "name": {
           "type": "string",
-          "minLength": 1
-        },
-        "surname": {
-          "type": "string",
-          "minLength": 1
-        },
-        "github": {
-          "type": "string"
-        },
-        "website": {
-          "type": "string"
+          "minLength": 1,
+          "pattern": "^[^\\r\\n]+$",
+          "description": "The full name"
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "format": "email"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://",
+          "description": "A page of the person, such as their GitHub profile"
         }
       },
       "required": ["name"],

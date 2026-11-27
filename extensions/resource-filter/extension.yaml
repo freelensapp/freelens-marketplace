@@ -17,6 +17,5 @@ spec:
   repository: https://github.com/mojish/freelens-resource-filter-extension
   license: MIT
   authors:
-  - name: Mojtaba
-    surname: Shahbazi
-    github: https://github.com/mojish
+  - name: Mojtaba Shahbazi
+    url: https://github.com/mojish

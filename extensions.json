@@ -28,9 +28,8 @@
         "license": "MIT",
         "authors": [
           {
-            "name": "Leopoldo",
-            "surname": "Capuano",
-            "github": "https://github.com/leo-capvano"
+            "name": "Leopoldo Capuano",
+            "url": "https://github.com/leo-capvano"
           }
         ]
       }
@@ -61,15 +60,12 @@
         "license": "MIT",
         "authors": [
           {
-            "name": "Leopoldo",
-            "surname": "Capuano",
-            "github": "https://github.com/leo-capvano"
+            "name": "Leopoldo Capuano",
+            "url": "https://github.com/leo-capvano"
           },
           {
-            "name": "Mario",
-            "surname": "Offertucci",
-            "github": "https://github.com/mariomamo/",
-            "website": "www.mariooffertucci.it"
+            "name": "Mario Offertucci",
+            "url": "https://github.com/mariomamo"
           }
         ]
       }
@@ -200,9 +196,8 @@
         "license": "MIT",
         "authors": [
           {
-            "name": "Omar",
-            "surname": "Alani",
-            "github": "https://github.com/omarluq"
+            "name": "Omar Alani",
+            "url": "https://github.com/omarluq"
           }
         ]
       }
@@ -231,9 +226,8 @@
         "license": "MIT",
         "authors": [
           {
-            "name": "Michael",
-            "surname": "Callahan",
-            "github": "https://github.com/mike-callahan"
+            "name": "Michael Callahan",
+            "url": "https://github.com/mike-callahan"
           }
         ]
       }
@@ -286,9 +280,8 @@
         "license": "MIT",
         "authors": [
           {
-            "name": "Mojtaba",
-            "surname": "Shahbazi",
-            "github": "https://github.com/mojish"
+            "name": "Mojtaba Shahbazi",
+            "url": "https://github.com/mojish"
           }
         ]
       }

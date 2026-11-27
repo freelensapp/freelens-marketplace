@@ -17,10 +17,7 @@ spec:
   repository: https://github.com/freelensapp/freelens-ai-extension
   license: MIT
   authors:
-  - name: Leopoldo
-    surname: Capuano
-    github: https://github.com/leo-capvano
-  - name: Mario
-    surname: Offertucci
-    github: https://github.com/mariomamo/
-    website: www.mariooffertucci.it
+  - name: Leopoldo Capuano
+    url: https://github.com/leo-capvano
+  - name: Mario Offertucci
+    url: https://github.com/mariomamo

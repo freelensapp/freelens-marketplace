@@ -17,6 +17,5 @@ spec:
   repository: https://github.com/freelensapp/freelens-agentbridge-extension
   license: MIT
   authors:
-  - name: Leopoldo
-    surname: Capuano
-    github: https://github.com/leo-capvano
+  - name: Leopoldo Capuano
+    url: https://github.com/leo-capvano
