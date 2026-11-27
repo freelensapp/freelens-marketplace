@@ -130,8 +130,8 @@ not inside Freelens. Node is of the 26 series, not the version bundled in the
 Electron of Freelens: `.nvmrc`, `mise.toml` and the Node runtime in
 `.trunk/trunk.yaml` hold the same version, Renovate bumps them together within
 the series, and a new major is a change made by hand. The libraries of the
-generator (`ajv`, `ajv-formats`, `js-yaml`, `semver`) follow npm instead of the Freelens
-catalog. They are pinned to exact versions and wait 25 hours, the
+generator (`ajv`, `ajv-formats`, `js-yaml`, `semver`) follow npm instead of
+the Freelens catalog. They are pinned to exact versions and wait 25 hours, the
 `minimumReleaseAge` of pnpm; the extension versions are not installed and
 take no delay.
 

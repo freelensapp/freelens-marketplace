@@ -1,8 +1,6 @@
 #!/usr/bin/env node
-// Validates the manifests in extensions/ and writes extensions.json, the list
-// the Freelens client reads. Every check is offline, as this runs as the
-// required check "Validate manifests"; scripts/verify-packages.mjs checks the
-// packages themselves against npm and the URLs.
+// Every check is offline, as this is the required check "Validate manifests";
+// the checks that need npm and the URLs are in scripts/verify-packages.mjs.
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";

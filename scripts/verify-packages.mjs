@@ -1,14 +1,6 @@
 #!/usr/bin/env node
-// Downloads the package of each item of versions in the manifests, from npm
-// or from its url, and checks it against the manifest: the integrity of the
-// tarball, the name and the version in its package.json, and that its
-// engines.freelens admits every Freelens version the item claims.
-//
-//   node scripts/verify-packages.mjs              every item
-//   node scripts/verify-packages.mjs --base REV   the items that REV lacks
-//
-// It reads the tarball as data and runs nothing from it. It needs npm and the
-// URLs, so it runs in verify-packages.yaml, not in the required check.
+// It reads the tarballs as data and runs nothing from them: it runs on pull
+// requests from forks, whose manifests may point at any package.
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { readdirSync, readFileSync } from "node:fs";
