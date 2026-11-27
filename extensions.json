@@ -1,120 +1,319 @@
 {
-  "meta": {
-    "version": 0
-  },
-  "extensions": [
+  "apiVersion": "freelens.app/v1",
+  "kind": "MarketplaceExtensionList",
+  "items": [
     {
-      "name": "@freelensapp/agentbridge-extension",
-      "description": "Bring an AI coding agent into every Kubernetes cluster you manage — without leaving Freelens.",
-      "status": "official",
-      "version": "2.1.0",
-      "repository": "https://github.com/freelensapp/freelens-agentbridge-extension",
-      "authors": [
-        {
-          "name": "Leopoldo",
-          "surname": "Capuano",
-          "github": "https://github.com/leo-capvano"
-        }
-      ]
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "agentbridge"
+      },
+      "spec": {
+        "displayName": "AgentBridge",
+        "summary": "Bring an AI coding agent into every Kubernetes cluster you manage — without leaving Freelens.",
+        "tier": "official",
+        "package": "@freelensapp/agentbridge-extension",
+        "versions": [
+          {
+            "version": "2.1.0",
+            "freelens": "^2.0.0"
+          },
+          {
+            "version": "1.3.0",
+            "freelens": "^1.8.0"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-agentbridge-extension",
+        "repository": "https://github.com/freelensapp/freelens-agentbridge-extension",
+        "license": "MIT",
+        "authors": [
+          {
+            "name": "Leopoldo",
+            "surname": "Capuano",
+            "github": "https://github.com/leo-capvano"
+          }
+        ]
+      }
     },
     {
-      "name": "@freelensapp/ai-extension",
-      "description": "Automate complex tasks and enhance productivity through GenAI & LLMs.",
-      "status": "official",
-      "version": "1.0.0",
-      "repository": "https://github.com/freelensapp/freelens-ai-extension",
-      "authors": [
-        {
-          "name": "Leopoldo",
-          "surname": "Capuano",
-          "github": "https://github.com/leo-capvano"
-        },
-        {
-          "name": "Mario",
-          "surname": "Offertucci",
-          "github": "https://github.com/mariomamo/",
-          "website": "www.mariooffertucci.it"
-        }
-      ]
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "ai"
+      },
+      "spec": {
+        "displayName": "AI",
+        "summary": "Automate complex tasks and enhance productivity through GenAI & LLMs.",
+        "tier": "official",
+        "package": "@freelensapp/ai-extension",
+        "versions": [
+          {
+            "version": "1.0.0",
+            "freelens": "^2.0.0"
+          },
+          {
+            "version": "0.7.1",
+            "freelens": "^1.4.0"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-ai-extension",
+        "repository": "https://github.com/freelensapp/freelens-ai-extension",
+        "license": "MIT",
+        "authors": [
+          {
+            "name": "Leopoldo",
+            "surname": "Capuano",
+            "github": "https://github.com/leo-capvano"
+          },
+          {
+            "name": "Mario",
+            "surname": "Offertucci",
+            "github": "https://github.com/mariomamo/",
+            "website": "www.mariooffertucci.it"
+          }
+        ]
+      }
     },
     {
-      "name": "@freelensapp/fluxcd-extension",
-      "description": "Integrates FluxCD support.",
-      "status": "official",
-      "version": "6.1.0"
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "fluxcd"
+      },
+      "spec": {
+        "displayName": "FluxCD",
+        "summary": "Integrates FluxCD support.",
+        "tier": "official",
+        "package": "@freelensapp/fluxcd-extension",
+        "versions": [
+          {
+            "version": "6.2.0",
+            "freelens": "^2.0.0"
+          },
+          {
+            "version": "5.3.1",
+            "freelens": "^1.6.2"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-fluxcd-extension",
+        "repository": "https://github.com/freelensapp/freelens-fluxcd-extension",
+        "license": "MIT"
+      }
     },
     {
-      "name": "@freelensapp/kamaji-extension",
-      "description": "Freelens extension for Kamaji, the Kubernetes Control Plane Manager.",
-      "status": "official",
-      "version": "2.0.1"
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "kamaji"
+      },
+      "spec": {
+        "displayName": "Kamaji",
+        "summary": "Freelens extension for Kamaji, the Kubernetes Control Plane Manager.",
+        "tier": "official",
+        "package": "@freelensapp/kamaji-extension",
+        "versions": [
+          {
+            "version": "2.0.1",
+            "freelens": "^2.0.0"
+          },
+          {
+            "version": "1.0.0",
+            "freelens": "^1.3.2"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-kamaji-extension",
+        "repository": "https://github.com/freelensapp/freelens-kamaji-extension",
+        "license": "MIT"
+      }
     },
     {
-      "name": "@freelensapp/resource-map-extension",
-      "description": "Displays Kubernetes resources and their relations as a real-time force-directed graph.",
-      "status": "official",
-      "version": "2.0.0"
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "resource-map"
+      },
+      "spec": {
+        "displayName": "Resource Map",
+        "summary": "Displays Kubernetes resources and their relations as a real-time force-directed graph.",
+        "tier": "official",
+        "package": "@freelensapp/resource-map-extension",
+        "versions": [
+          {
+            "version": "2.0.0",
+            "freelens": "^2.0.0"
+          },
+          {
+            "version": "1.0.2",
+            "freelens": "^1.6.0"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-resource-map-extension",
+        "repository": "https://github.com/freelensapp/freelens-resource-map-extension",
+        "license": "MIT"
+      }
     },
     {
-      "name": "@andrea-falco/freelens-multi-pod-logs",
-      "description": "Enables you to see logs from multiple pods (and multiple containers within the pod) on Kubernetes.",
-      "status": "community",
-      "version": "1.0.1"
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "certificate-info"
+      },
+      "spec": {
+        "displayName": "Certificate Info",
+        "summary": "See expire date from certificates inside Kubernetes secrets.",
+        "tier": "community",
+        "package": "lens-certificate-info",
+        "versions": [
+          {
+            "version": "5.0.0",
+            "freelens": "^2.0.0"
+          },
+          {
+            "version": "4.3.7",
+            "freelens": "^1.6.0"
+          }
+        ],
+        "homepage": "https://github.com/jkroepke/lens-extension-certificate-info",
+        "repository": "https://github.com/jkroepke/lens-extension-certificate-info",
+        "license": "Apache-2.0"
+      }
     },
     {
-      "name": "@freelensapp/freelens-jobset-extension",
-      "description": "Freelens extension for JobSet.",
-      "status": "community",
-      "version": "1.0.0",
-      "repository": "https://github.com/mike-callahan/freelens-jobset-extension",
-      "authors": [
-        {
-          "name": "Michael",
-          "surname": "Callahan",
-          "github": "https://github.com/mike-callahan"
-        }
-      ]
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "duplicate"
+      },
+      "spec": {
+        "displayName": "Duplicate",
+        "summary": "Create duplicate Kubernetes resources from Freelens.",
+        "tier": "community",
+        "package": "@omarluq/freelens-duplicate-extension",
+        "versions": [
+          {
+            "version": "1.0.0",
+            "freelens": "^1.5.2"
+          }
+        ],
+        "homepage": "https://github.com/omarluq/freelens-duplicate-extension",
+        "repository": "https://github.com/omarluq/freelens-duplicate-extension",
+        "license": "MIT",
+        "authors": [
+          {
+            "name": "Omar",
+            "surname": "Alani",
+            "github": "https://github.com/omarluq"
+          }
+        ]
+      }
     },
     {
-      "name": "@omarluq/freelens-duplicate-extension",
-      "description": "Create duplicate Kubernetes resources from Freelens.",
-      "status": "community",
-      "version": "1.0.0",
-      "repository": "https://github.com/omarluq/freelens-duplicate-extension",
-      "authors": [
-        {
-          "name": "Omar",
-          "surname": "Alani",
-          "github": "https://github.com/omarluq"
-        }
-      ]
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "jobset"
+      },
+      "spec": {
+        "displayName": "JobSet",
+        "summary": "Freelens extension for JobSet.",
+        "tier": "community",
+        "package": "@mike-callahan/jobset-extension",
+        "versions": [
+          {
+            "version": "1.0.0-0",
+            "freelens": "^1.3.2",
+            "url": "https://github.com/mike-callahan/freelens-jobset-extension/releases/download/v1.0.0/mike-callahan-jobset-extension-1.0.0-0.tgz",
+            "integrity": "sha256-s6PpsK6kuWfyw0I43+NigYudCXL+jfsQjlgM5D5xVv4="
+          }
+        ],
+        "homepage": "https://github.com/mike-callahan/freelens-jobset-extension",
+        "repository": "https://github.com/mike-callahan/freelens-jobset-extension",
+        "license": "MIT",
+        "authors": [
+          {
+            "name": "Michael",
+            "surname": "Callahan",
+            "github": "https://github.com/mike-callahan"
+          }
+        ]
+      }
     },
     {
-      "name": "@ottimis/freelens-version-update",
-      "description": "Simplify update of deployment image tag (containers and initContainers).",
-      "status": "community",
-      "version": "1.1.0",
-      "repository": "https://github.com/ottimis/freelens-version-update"
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "multi-pod-logs"
+      },
+      "spec": {
+        "displayName": "Multi Pod Logs",
+        "summary": "Enables you to see logs from multiple pods (and multiple containers within the pod) on Kubernetes.",
+        "tier": "community",
+        "package": "@andrea-falco/freelens-multi-pod-logs",
+        "versions": [
+          {
+            "version": "1.0.1",
+            "freelens": "^1.0.0"
+          }
+        ],
+        "homepage": "https://github.com/andrea-falco/freelens-multi-pod-logs",
+        "repository": "https://github.com/andrea-falco/freelens-multi-pod-logs",
+        "license": "MIT"
+      }
     },
     {
-      "name": "freelens-resource-filter-extension",
-      "description": "Field-based filtering for any Kubernetes resource kind, including CRDs, with per-kind persistence and saved filter sets.",
-      "status": "community",
-      "version": "0.5.0",
-      "repository": "https://github.com/mojish/freelens-resource-filter-extension",
-      "authors": [
-        {
-          "name": "Mojtaba",
-          "surname": "Shahbazi",
-          "github": "https://github.com/mojish"
-        }
-      ]
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "resource-filter"
+      },
+      "spec": {
+        "displayName": "Resource Filter",
+        "summary": "Field-based filtering for any Kubernetes resource kind, including CRDs, with per-kind persistence and saved filter sets.",
+        "tier": "community",
+        "package": "freelens-resource-filter-extension",
+        "versions": [
+          {
+            "version": "0.5.0",
+            "freelens": "^2.0.0"
+          },
+          {
+            "version": "0.4.0",
+            "freelens": "^1.10.0"
+          }
+        ],
+        "homepage": "https://github.com/mojish/freelens-resource-filter-extension",
+        "repository": "https://github.com/mojish/freelens-resource-filter-extension",
+        "license": "MIT",
+        "authors": [
+          {
+            "name": "Mojtaba",
+            "surname": "Shahbazi",
+            "github": "https://github.com/mojish"
+          }
+        ]
+      }
     },
     {
-      "name": "lens-certificate-info",
-      "description": "See expire date from certificates inside Kubernetes secrets.",
-      "status": "community",
-      "version": "5.0.0"
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "version-update"
+      },
+      "spec": {
+        "displayName": "Version Update",
+        "summary": "Simplify update of deployment image tag (containers and initContainers).",
+        "tier": "community",
+        "package": "@ottimis/freelens-version-update",
+        "versions": [
+          {
+            "version": "1.1.0",
+            "freelens": "^1.8.0"
+          }
+        ],
+        "homepage": "https://github.com/ottimis/freelens-version-update",
+        "repository": "https://github.com/ottimis/freelens-version-update",
+        "license": "MIT"
+      }
     }
   ]
 }

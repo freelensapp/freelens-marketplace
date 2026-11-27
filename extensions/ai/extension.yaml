@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: ai
+spec:
+  displayName: AI
+  summary: Automate complex tasks and enhance productivity through GenAI & LLMs.
+  tier: official
+  package: "@freelensapp/ai-extension"
+  versions:
+  - version: 1.0.0
+    freelens: ^2.0.0
+  - version: 0.7.1
+    freelens: ^1.4.0
+  homepage: https://github.com/freelensapp/freelens-ai-extension
+  repository: https://github.com/freelensapp/freelens-ai-extension
+  license: MIT
+  authors:
+  - name: Leopoldo
+    surname: Capuano
+    github: https://github.com/leo-capvano
+  - name: Mario
+    surname: Offertucci
+    github: https://github.com/mariomamo/
+    website: www.mariooffertucci.it

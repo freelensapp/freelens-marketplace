@@ -1,4 +1,0 @@
-name: "@andrea-falco/freelens-multi-pod-logs"
-description: Enables you to see logs from multiple pods (and multiple containers within the pod) on Kubernetes.
-status: community
-version: 1.0.1

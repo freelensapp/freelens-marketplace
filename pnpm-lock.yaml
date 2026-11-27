@@ -194,6 +194,9 @@ importers:
       js-yaml:
         specifier: 5.5.0
         version: 5.5.0
+      semver:
+        specifier: 7.8.6
+        version: 7.8.6
 
 packages:
 
@@ -228,6 +231,11 @@ packages:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
 
+  semver@7.8.6:
+    resolution: {integrity: sha512-9lpSSU4Mly3mrtruwLs1eLK6+gzbzqeBFwRNjIjE+9LuDpWdYctrQlQ3ej1Ilgi7gknpsTRnPoLP8DpCHqHIJw==}
+    engines: {node: '>=10'}
+    hasBin: true
+
 snapshots:
 
   ajv-formats@3.0.1(ajv@8.20.0):
@@ -254,3 +262,5 @@ snapshots:
   json-schema-traverse@1.0.0: {}
 
   require-from-string@2.0.2: {}
+
+  semver@7.8.6: {}

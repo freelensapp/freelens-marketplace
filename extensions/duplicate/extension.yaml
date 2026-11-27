@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: duplicate
+spec:
+  displayName: Duplicate
+  summary: Create duplicate Kubernetes resources from Freelens.
+  tier: community
+  package: "@omarluq/freelens-duplicate-extension"
+  versions:
+  - version: 1.0.0
+    freelens: ^1.5.2
+  homepage: https://github.com/omarluq/freelens-duplicate-extension
+  repository: https://github.com/omarluq/freelens-duplicate-extension
+  license: MIT
+  authors:
+  - name: Omar
+    surname: Alani
+    github: https://github.com/omarluq

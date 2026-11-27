@@ -1,4 +1,0 @@
-name: "@freelensapp/kamaji-extension"
-description: Freelens extension for Kamaji, the Kubernetes Control Plane Manager.
-status: official
-version: 2.0.1
