@@ -1,4 +1,4 @@
-name: '@omarluq/freelens-duplicate-extension'
+name: "@omarluq/freelens-duplicate-extension"
 description: Create duplicate Kubernetes resources from Freelens.
 status: community
 version: 1.0.0

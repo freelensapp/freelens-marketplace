@@ -1,5 +1,6 @@
 formatter:
   eof_newline: false
+  force_quote_style: double
   indentless_arrays: true
   # No limit: yamlfmt would fold a long description onto a second line.
   max_line_length: 0

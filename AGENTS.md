@@ -50,7 +50,9 @@ onto a continuation line.
 yamllint (`.yamllint.yaml`) wants strings quoted only when YAML needs it: a
 name of a scoped package starts with `@`, a reserved indicator, and keeps its
 quotes; a description or a version does not need them. A version such as
-`1.0.0` stays a string without quotes, as it is not a number.
+`1.0.0` stays a string without quotes, as it is not a number. Where quotes stay,
+they are double: `force_quote_style` of `extensions/.yamlfmt.yaml` rewrites
+single ones, which yq and kubectl write.
 
 Renovate bumps `version` with the custom manager for `extension.yaml` in
 `.renovaterc.json`. It matches `name:` and `version:` separately and combines

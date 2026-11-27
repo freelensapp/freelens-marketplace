@@ -1,4 +1,4 @@
-name: '@freelensapp/agentbridge-extension'
+name: "@freelensapp/agentbridge-extension"
 description: Bring an AI coding agent into every Kubernetes cluster you manage — without leaving Freelens.
 status: official
 version: 2.1.0
