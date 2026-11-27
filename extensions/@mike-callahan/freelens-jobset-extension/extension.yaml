@@ -1,12 +1,9 @@
-name: "@freelensapp/freelens-jobset-extension"
-description: "Freelens extension for JobSet."
+name: '@freelensapp/freelens-jobset-extension'
+description: Freelens extension for JobSet.
 status: community
-version: "1.0.0"
-repository: "https://github.com/mike-callahan/freelens-jobset-extension"
-authors: [
-  {
-    name: "Michael",
-    surname: "Callahan",
-    github: "https://github.com/mike-callahan"
-  }
-  ]
+version: 1.0.0
+repository: https://github.com/mike-callahan/freelens-jobset-extension
+authors:
+- name: Michael
+  surname: Callahan
+  github: https://github.com/mike-callahan
