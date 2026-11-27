@@ -1,18 +1,13 @@
 name: "@freelensapp/ai-extension"
-description: "Automate complex tasks and enhance productivity through GenAI & LLMs."
+description: Automate complex tasks and enhance productivity through GenAI & LLMs.
 status: official
-version: "1.0.0"
-repository: "https://github.com/freelensapp/freelens-ai-extension"
-authors: [
-  {
-    name: "Leopoldo",
-    surname: "Capuano",
-    github: "https://github.com/leo-capvano"
-  },
-  {
-    name: "Mario",
-    surname: "Offertucci",
-    github: "https://github.com/mariomamo/",
-    website: "www.mariooffertucci.it"
-  },
-  ]
+version: 1.0.0
+repository: https://github.com/freelensapp/freelens-ai-extension
+authors:
+- name: Leopoldo
+  surname: Capuano
+  github: https://github.com/leo-capvano
+- name: Mario
+  surname: Offertucci
+  github: https://github.com/mariomamo/
+  website: www.mariooffertucci.it

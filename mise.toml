@@ -1,0 +1,9 @@
+[tools]
+cosign = "3.1.4"
+node = "26.13.1"
+pnpm = "12.23.0"
+yq = "4.54.3"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+lockfile = true

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import { readFileSync, writeFileSync, readdirSync } from "node:fs";
-import { join, relative, dirname } from "node:path";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { load } from "js-yaml";
 import Ajv from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
+import { load } from "js-yaml";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "..");
@@ -59,9 +59,8 @@ function main() {
 
   extensions.sort(
     (a, b) =>
-      (STATUS_ORDER[a.status] ?? Number.MAX_SAFE_INTEGER) -
-        (STATUS_ORDER[b.status] ?? Number.MAX_SAFE_INTEGER) ||
-      a.name.localeCompare(b.name)
+      (STATUS_ORDER[a.status] ?? Number.MAX_SAFE_INTEGER) - (STATUS_ORDER[b.status] ?? Number.MAX_SAFE_INTEGER) ||
+      a.name.localeCompare(b.name),
   );
 
   const output = {
@@ -72,9 +71,7 @@ function main() {
   };
 
   writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + "\n", "utf8");
-  console.log(
-    `Wrote ${OUTPUT_PATH} with ${extensions.length} extension(s).`
-  );
+  console.log(`Wrote ${OUTPUT_PATH} with ${extensions.length} extension(s).`);
 }
 
 main();

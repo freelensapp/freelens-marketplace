@@ -1,0 +1,42 @@
+name: Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "**"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check
+
+    runs-on: ubuntu-26.04-arm
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+
+      # pnpm comes from mise, as Node no longer bundles Corepack from version 26.
+      # mise verifies the download against mise.lock. The lint script runs
+      # Biome with `pnpm dlx`, so no dependency has to be installed.
+      - name: Set up mise
+        uses: jdx/mise-action@v5
+        with:
+          version: 2026.11.14 # datasource=github-releases depName=jdx/mise
+          install_args: pnpm
+
+      - name: Check linters
+        run: pnpm --color=always lint:check

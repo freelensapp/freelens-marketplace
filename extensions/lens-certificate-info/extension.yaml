@@ -1,4 +1,4 @@
-name: "lens-certificate-info"
-description: "See expire date from certificates inside Kubernetes secrets."
+name: lens-certificate-info
+description: See expire date from certificates inside Kubernetes secrets.
 status: community
-version: "5.0.0"
+version: 5.0.0

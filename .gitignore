@@ -1,2 +1,27 @@
-docs/
-node_modules/
+*.log
+*.tgz
+*.tmp
+*~
+
+/docs/
+/node_modules/
+
+# Scratch space of the CI agent, which checks out Freelens at tmp/freelens.
+/tmp/
+
+*.DS_Store
+/.idea
+/.vscode
+
+# Credentials and keys. Keep in sync with the Security section of AGENTS.md
+# and the permissions.deny rules in .claude/settings.json.
+.env
+.env.*
+.envrc
+.npmrc
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
