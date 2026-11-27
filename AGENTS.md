@@ -6,10 +6,26 @@ repository.
 ## Project Overview
 
 The list of extensions that the Freelens marketplace offers. Every extension
-has a manifest, `extensions/<npm-name>/extension.yaml`, validated against
-`schema/lens-extension.schema.json`. `scripts/build-extensions.mjs` validates
-all of them and writes `extensions.json`, which the Freelens client reads, with
-the official extensions first and then by name.
+has an entry, `extensions/<metadata.name>/extension.yaml`: a Kubernetes-style
+manifest of `apiVersion: freelens.app/v1` and `kind: MarketplaceExtension`,
+like the themes of Freelens, validated against
+`schemas/marketplace-extension-v1.schema.json`. `scripts/build-extensions.mjs`
+validates all of them and writes `extensions.json`, a
+`MarketplaceExtensionList` validated against
+`schemas/marketplace-extension-list-v1.schema.json`, which the Freelens
+client reads, with the official entries first and then by `metadata.name`.
+`docs/extensions.md` documents the format for authors of extensions; keep it,
+the schemas and the checks of the build in step.
+
+The checks of `pnpm build` are offline, as it is the required check
+`Validate manifests`: the schema, `metadata.name` equal to the directory,
+unique names and packages, `versions` newest first and unique, the order of
+the keys of an item, and the icon (an existing PNG, square, at least 128x128,
+at most 64 KiB). `scripts/verify-packages.mjs` (`pnpm verify`) needs npm and
+GitHub: it downloads the tarball of each item, checks its integrity, the
+`name` and `version` of its `package.json`, and that its `engines.freelens`
+admits every version of the item's `freelens` range (`semver.subset`). It
+reads the tarball as data and runs nothing from it.
 
 `extensions.json` is generated: a PR changes only the manifests, and the
 `commit` job of `build-extensions.yaml` regenerates the file on `main` and
@@ -28,6 +44,7 @@ drift.
 ```bash
 pnpm install      # dependencies of the generator
 pnpm build        # validate the manifests and regenerate extensions.json
+pnpm verify       # download and check the packages (--base <rev>: the changed items only)
 pnpm lint:check   # Biome
 pnpm lint:fix
 pnpm trunk:check  # Trunk: yamlfmt, yamllint, actionlint, taplo and Biome
@@ -48,18 +65,33 @@ sets no line length, because yamlfmt would otherwise fold a long description
 onto a continuation line.
 
 yamllint (`.yamllint.yaml`) wants strings quoted only when YAML needs it: a
-name of a scoped package starts with `@`, a reserved indicator, and keeps its
-quotes; a description or a version does not need them. A version such as
+`package` of a scoped package starts with `@`, a reserved indicator, and keeps
+its quotes, as does a `freelens` range that starts with `>` or `*`; a summary,
+a version or a range such as `^2.0.0` does not need them. A version such as
 `1.0.0` stays a string without quotes, as it is not a number. Where quotes stay,
 they are double: `force_quote_style` of `extensions/.yamlfmt.yaml` rewrites
-single ones, which yq and kubectl write.
+single ones, which yq and kubectl write. Each manifest starts with the
+`yaml-language-server` comment that points at its schema.
 
-Renovate bumps `version` with the custom manager for `extension.yaml` in
-`.renovaterc.json`. It matches `name:` and `version:` separately and combines
-them (`matchStringsStrategy: combination`), because other fields lie between
-the two, and both are anchored at the start of a line, so that the `- name:`
-of an author does not match. The updates of all extensions are grouped into
-one PR.
+Renovate bumps the `version` of the first item of `spec.versions` with the
+custom manager for `extension.yaml` in `.renovaterc.json`, and only when that
+item comes from npm. It matches `package:` and the version separately and
+combines them (`matchStringsStrategy: combination`), because other fields lie
+between the two. `package:` is anchored at two spaces of indentation, a key of
+`spec`. The version matches only right after `versions:`, and only when the
+item ends after `freelens:`, so an item with `url:` is left alone. RE2 has no
+lookahead, so the pattern consumes the start of the next line and relies on
+the order of the keys of an item (`version`, `freelens`, `url`, `integrity`),
+which the build enforces. The matched text holds the `freelens:` range too, so
+the package rule sets `autoReplaceGlobalMatch: false`: with the default,
+Renovate replaces every occurrence of the old version in it, and a bump of
+`2.0.0` would rewrite a range `^2.0.0`. Older items and URL items are updated
+by hand. The updates of all extensions are grouped into one PR.
+
+Test a change of the pattern against every manifest with Renovate itself
+(`renovate --platform=local --dry-run=lookup` on a copy of the repository,
+which logs "Using RE2 regex engine" and the extracted dependencies), not with
+the regular expressions of JavaScript alone.
 
 ## Lint and CI
 
@@ -98,7 +130,7 @@ not inside Freelens. Node is of the 26 series, not the version bundled in the
 Electron of Freelens: `.nvmrc`, `mise.toml` and the Node runtime in
 `.trunk/trunk.yaml` hold the same version, Renovate bumps them together within
 the series, and a new major is a change made by hand. The libraries of the
-generator (`ajv`, `ajv-formats`, `js-yaml`) follow npm instead of the Freelens
+generator (`ajv`, `ajv-formats`, `js-yaml`, `semver`) follow npm instead of the Freelens
 catalog. They are pinned to exact versions and wait 25 hours, the
 `minimumReleaseAge` of pnpm; the extension versions are not installed and
 take no delay.
@@ -108,6 +140,7 @@ take no delay.
 | Workflow                | Runs                                                                          |
 | ----------------------- | ----------------------------------------------------------------------------- |
 | `build-extensions.yaml` | `pnpm build` on PRs; on `main` also commits the regenerated `extensions.json` |
+| `verify-packages.yaml`  | on a PR that changes `extensions/**`: `pnpm verify` of the changed items      |
 | `check.yaml`            | `pnpm lint:check`                                                             |
 | `trunk-check.yaml`      | `trunk check --all`                                                           |
 | `mise-lock-check.yaml`  | on a change to `mise.lock`: no checksum changed for an unchanged tool version |
@@ -136,7 +169,9 @@ a direct push of a commit that has not passed it, which is why
 `GH_TOKEN`: its account is an admin, a role the ruleset lets bypass. For the
 same reason `build-extensions.yaml` has no paths filter on pull requests: a
 required check that does not run keeps the PR blocked. Renaming one of these
-jobs needs a matching change of the ruleset.
+jobs needs a matching change of the ruleset. `Verify packages` is not a
+required check, as it depends on npm and GitHub, so its workflow may filter
+on paths.
 
 ## Code Style
 

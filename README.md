@@ -1,57 +1,68 @@
 # Freelens Marketplace
 
-List of extensions available in the Freelens marketplace.
+The list of extensions that the marketplace of Freelens offers.
 
-Each extension lives in its own folder under `extensions/`. Renovate watches
-each `extension.yaml` and opens a PR when the npm version changes.
+Each extension has an entry, a Kubernetes-style manifest of
+`apiVersion: freelens.app/v1` and `kind: MarketplaceExtension`, in its own
+directory under `extensions/`. The manifests are validated against JSON
+Schemas and generate `extensions.json`, a `MarketplaceExtensionList` that
+Freelens reads.
+
+To add or update an extension, see [docs/extensions.md](docs/extensions.md).
 
 ## Layout
 
-- `extensions/<name>/extension.yaml` — the manifest (name, description, status, version, and optionally
-  repository and authors)
-- `extensions/<name>/icon.png` — 256x256 PNG, optional but recommended
-- `schema/lens-extension.schema.json` — JSON Schema for `extension.yaml`
-- `extensions.json` — generated artifact consumed by the Freelens client
+- `extensions/<name>/extension.yaml`: the manifest of an entry, where `<name>`
+  is its `metadata.name`
+- `extensions/<name>/<icon>.png`: the icon of an entry, optional
+- `schemas/marketplace-extension-v1.schema.json`: JSON Schema of a manifest
+- `schemas/marketplace-extension-list-v1.schema.json`: JSON Schema of the list
+- `scripts/build-extensions.mjs`: validates the manifests and writes the list
+- `scripts/verify-packages.mjs`: checks the packages against the manifests
+- `extensions.json`: the list, generated, read by Freelens
+- `docs/extensions.md`: the documentation for authors of extensions
 
-## Adding an extension
+## A manifest
 
-1. Create `extensions/<npm-name>/extension.yaml`:
+<!-- biome-ignore format: indentless sequences, as in the manifests -->
 
-   ```yaml
-   name: "@scope/my-extension"
-   description: What the extension does.
-   status: community
-   version: 1.0.0
-   repository: https://github.com/owner/my-extension
-   authors:
-   - name: Jane
-     surname: Doe
-     github: https://github.com/jane-doe
-   ```
+```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: fluxcd
+spec:
+  displayName: FluxCD
+  summary: Integrates FluxCD support.
+  tier: official
+  package: "@freelensapp/fluxcd-extension"
+  versions:
+  - version: 6.2.0
+    freelens: ^2.0.0
+  - version: 5.3.1
+    freelens: ^1.6.2
+  homepage: https://github.com/freelensapp/freelens-fluxcd-extension
+  repository: https://github.com/freelensapp/freelens-fluxcd-extension
+  license: MIT
+```
 
-2. Drop `icon.png` (256x256) next to it.
-3. Open a PR. The CI will validate the manifest and (on merge to `main`)
-   regenerate `extensions.json`.
-
-## Updating an extension
-
-After publishing a new version to npm, update `version` in the extension's
-`extension.yaml` and open a PR. The workflow regenerates `extensions.json`
-after merge; it does not need to be edited in the PR.
-
-## Schema
-
-`lens-extension/v1`. See `schema/lens-extension.schema.json`.
+Freelens offers the newest item of `versions` whose `freelens` range matches
+the running Freelens. An item without `url` is installed from npm; an item
+with `url` and `integrity` from that tarball.
 
 ## CI
 
-`.github/workflows/build-extensions.yaml`:
-
-- On pull requests touching `extensions/`, `schema/`, or the script:
-  validates every `extension.yaml` against the schema. Fails the PR on
-  invalid manifests.
-- On push to `main`: regenerates `extensions.json` and commits it back
-  if it changed.
+- **Validate manifests** (`build-extensions.yaml`, `pnpm build`): checks every
+  manifest offline, against the schema and the rules of
+  [docs/extensions.md](docs/extensions.md), and the generated list against its
+  schema. On `main`, it also commits the regenerated `extensions.json`.
+- **Verify packages** (`verify-packages.yaml`, `pnpm verify`): on a pull
+  request that changes `extensions/`, downloads the package of every added or
+  changed item of `versions`, from npm or from its `url`, and checks its
+  integrity, its name and version, and its `engines.freelens`.
+- **Renovate** bumps the first item of `versions` of an entry when it comes
+  from npm.
 
 Trunk and Biome check the formatting of every file, the manifests included.
 
@@ -66,6 +77,8 @@ pnpm build
 ```
 
 `pnpm build` validates the manifests and regenerates `extensions.json`.
+`pnpm verify` downloads and checks the packages of every item, or with
+`pnpm verify --base main` those that `main` lacks.
 
 Before opening a PR, check and fix the formatting:
 

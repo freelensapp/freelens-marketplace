@@ -3,7 +3,6 @@
 *.tmp
 *~
 
-/docs/
 /node_modules/
 
 # Scratch space of the CI agent, which checks out Freelens at tmp/freelens.
