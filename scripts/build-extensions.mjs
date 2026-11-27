@@ -24,6 +24,10 @@ const TIER_ORDER = { official: 0, community: 1 };
 // on it: it bumps the first item only when the item ends after `freelens:`.
 const VERSION_KEYS = ["version", "freelens", "url", "integrity"];
 
+// Freelens 1.x has no marketplace, so an item only for it would never be
+// offered.
+const MARKETPLACE_FREELENS = ">=2.0.0";
+
 const ICON_MIN_SIZE = 128;
 const ICON_MAX_BYTES = 64 * 1024;
 const PNG_SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
@@ -72,6 +76,8 @@ function checkVersions(spec, fail) {
     }
     if (semver.validRange(item.freelens) === null) {
       fail(`${where}.freelens: ${item.freelens} is not a valid semver range`);
+    } else if (!semver.intersects(item.freelens, MARKETPLACE_FREELENS)) {
+      fail(`${where}.freelens: ${item.freelens} admits no Freelens ${MARKETPLACE_FREELENS}, which has the marketplace`);
     }
     if (seen.has(item.version)) {
       fail(`${where}.version: ${item.version} is listed more than once`);

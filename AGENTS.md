@@ -19,8 +19,9 @@ the schemas and the checks of the build in step.
 
 The checks of `pnpm build` are offline, as it is the required check
 `Validate manifests`: the schema, `metadata.name` equal to the directory,
-unique names and packages, `versions` newest first and unique, the order of
-the keys of an item, and the icon (an existing PNG, square, at least 128x128,
+unique names and packages, `versions` newest first and unique, a `freelens`
+range that admits Freelens 2.0.0 or newer (1.x has no marketplace), the order
+of the keys of an item, and the icon (an existing PNG, square, at least 128x128,
 at most 64 KiB). `scripts/verify-packages.mjs` (`pnpm verify`) needs npm and
 GitHub: it downloads the tarball of each item, checks its integrity, the
 `name` and `version` of its `package.json`, and that its `engines.freelens`

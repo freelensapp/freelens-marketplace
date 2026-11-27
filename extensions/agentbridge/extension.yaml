@@ -11,8 +11,6 @@ spec:
   versions:
   - version: 2.1.0
     freelens: ^2.0.0
-  - version: 1.3.0
-    freelens: ^1.8.0
   homepage: https://github.com/freelensapp/freelens-agentbridge-extension
   repository: https://github.com/freelensapp/freelens-agentbridge-extension
   license: MIT

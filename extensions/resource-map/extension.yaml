@@ -11,8 +11,6 @@ spec:
   versions:
   - version: 2.0.0
     freelens: ^2.0.0
-  - version: 1.0.2
-    freelens: ^1.6.0
   homepage: https://github.com/freelensapp/freelens-resource-map-extension
   repository: https://github.com/freelensapp/freelens-resource-map-extension
   license: MIT

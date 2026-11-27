@@ -29,8 +29,6 @@ spec:
   versions:
   - version: 2.1.0
     freelens: ^2.0.0
-  - version: 1.4.2
-    freelens: ^1.6.0
   homepage: https://github.com/jane-doe/freelens-my-extension
   repository: https://github.com/jane-doe/freelens-my-extension
   license: MIT
@@ -99,16 +97,17 @@ The items are listed newest first, and each version once. Freelens offers the
 newest item whose `freelens` range matches the running Freelens, and does not
 offer an entry with no such item. An entry therefore keeps one item for each
 range of Freelens it still supports, typically the newest version for each
-major version of Freelens:
+major version of Freelens. Only Freelens 2.0.0 and newer have the marketplace,
+so the build refuses an item whose range admits none of them:
 
 <!-- biome-ignore format: indentless sequences, as in the manifests -->
 
 ```yaml
 versions:
+- version: 7.0.0
+  freelens: ^3.0.0
 - version: 6.2.0
   freelens: ^2.0.0
-- version: 5.3.1
-  freelens: ^1.6.2
 ```
 
 Items from npm and from a URL can be mixed in one entry. An item from a URL:
@@ -141,7 +140,7 @@ or `<3.0.0`, stay unquoted:
 
 ```yaml
 - version: 1.0.0
-  freelens: ">=1.6.0 <3.0.0"
+  freelens: ">=2.0.0 <4.0.0"
 ```
 
 Freelens still checks `engines.freelens` of the package when it installs it,
@@ -201,7 +200,7 @@ When a new version needs another range of Freelens, such as a major version
 that moves to `^3.0.0`, the Renovate pull request fails **Verify packages**,
 as it keeps the old range. Fix it by hand: add the new version as a new first
 item with its range, and restore the item it replaced, which still serves the
-older Freelens:
+older Freelens 2.x:
 
 <!-- biome-ignore format: indentless sequences, as in the manifests -->
 
@@ -211,8 +210,6 @@ versions:
   freelens: ^3.0.0
 - version: 6.2.0
   freelens: ^2.0.0
-- version: 5.3.1
-  freelens: ^1.6.2
 ```
 
 An item is removed when its range of Freelens is no longer to be offered.

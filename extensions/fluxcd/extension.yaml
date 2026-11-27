@@ -11,8 +11,6 @@ spec:
   versions:
   - version: 6.2.0
     freelens: ^2.0.0
-  - version: 5.3.1
-    freelens: ^1.6.2
   homepage: https://github.com/freelensapp/freelens-fluxcd-extension
   repository: https://github.com/freelensapp/freelens-fluxcd-extension
   license: MIT

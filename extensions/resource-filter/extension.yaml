@@ -11,8 +11,6 @@ spec:
   versions:
   - version: 0.5.0
     freelens: ^2.0.0
-  - version: 0.4.0
-    freelens: ^1.10.0
   homepage: https://github.com/mojish/freelens-resource-filter-extension
   repository: https://github.com/mojish/freelens-resource-filter-extension
   license: MIT
