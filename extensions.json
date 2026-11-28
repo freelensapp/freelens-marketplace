@@ -60,6 +60,10 @@
           {
             "name": "Mario Offertucci",
             "url": "https://github.com/mariomamo"
+          },
+          {
+            "name": "Piotr Roszatycki",
+            "url": "https://github.com/dex4er"
           }
         ]
       }
@@ -88,8 +92,16 @@
         "icon": "icon.png",
         "authors": [
           {
-            "name": "Freelens Authors",
-            "email": "freelens@freelens.app"
+            "name": "Piotr Roszatycki",
+            "url": "https://github.com/dex4er"
+          },
+          {
+            "name": "Oliver Kaufmann",
+            "url": "https://github.com/okaufmann"
+          },
+          {
+            "name": "Stanislaw Wozniak",
+            "url": "https://github.com/sponte"
           }
         ]
       }
@@ -118,8 +130,8 @@
         "icon": "icon.png",
         "authors": [
           {
-            "name": "Freelens Authors",
-            "email": "freelens@freelens.app"
+            "name": "Piotr Roszatycki",
+            "url": "https://github.com/dex4er"
           }
         ]
       }
@@ -148,8 +160,8 @@
         "icon": "icon.png",
         "authors": [
           {
-            "name": "Freelens Authors",
-            "email": "freelens@freelens.app"
+            "name": "Piotr Roszatycki",
+            "url": "https://github.com/dex4er"
           }
         ]
       }
@@ -260,8 +272,8 @@
         "icon": "icon.png",
         "authors": [
           {
-            "name": "Freelens Authors",
-            "email": "freelens@freelens.app"
+            "name": "Piotr Roszatycki",
+            "url": "https://github.com/dex4er"
           }
         ]
       }
