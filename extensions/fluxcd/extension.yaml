@@ -5,7 +5,27 @@ metadata:
   name: fluxcd
 spec:
   displayName: FluxCD
-  summary: Integrates FluxCD support.
+  summary: Dashboard, lists and details of the FluxCD resources, with actions to reconcile, suspend and resume them.
+  description: |
+    Support for [FluxCD](https://fluxcd.io/), the continuous and progressive
+    delivery solutions for Kubernetes that keep the cluster state in sync with
+    sources such as Git repositories, OCI artifacts and Helm charts.
+
+    The extension provides a dashboard, cluster pages, list views and detail
+    panels for the FluxCD custom resources of the `fluxcd.controlplane.io`,
+    `source.toolkit.fluxcd.io`, `source.extensions.fluxcd.io`,
+    `kustomize.toolkit.fluxcd.io`, `helm.toolkit.fluxcd.io`,
+    `image.toolkit.fluxcd.io` and `notification.toolkit.fluxcd.io` API groups.
+    The detail view shows the status conditions, the spec fields and the
+    related objects. The menu of a resource reconciles, suspends and resumes
+    it. While the extension is enabled, these resources are listed once, under
+    "FluxCD", and left out of the Custom Resources tree of the sidebar.
+
+    ## Requirements
+
+    - Kubernetes >= 1.24
+    - Flux >= 2.0.0
+    - flux-operator >= 0.6.0
   tier: official
   package: "@freelensapp/fluxcd-extension"
   versions:
@@ -14,3 +34,7 @@ spec:
   homepage: https://github.com/freelensapp/freelens-fluxcd-extension
   repository: https://github.com/freelensapp/freelens-fluxcd-extension
   license: MIT
+  icon: icon.png
+  authors:
+  - name: Freelens Authors
+    email: freelens@freelens.app

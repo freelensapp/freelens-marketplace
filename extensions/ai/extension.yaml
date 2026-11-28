@@ -5,7 +5,28 @@ metadata:
   name: ai
 spec:
   displayName: AI
-  summary: Automate complex tasks and enhance productivity through GenAI & LLMs.
+  summary: Talk to your cluster in natural language with an AI agent that reads, explains and, with your approval, changes resources.
+  description: |
+    Freelens AI brings a chat with an AI agent into Freelens, with one
+    conversation per cluster. The agent reads, explains and, with your
+    approval, changes Kubernetes resources, while the chat keeps the full
+    context of the conversation.
+
+    The extension is a client of a large language model API: it talks the
+    OpenAI Chat Completions and Responses APIs, to OpenAI directly or to any
+    endpoint that implements them, such as an OpenAI-compatible gateway. You
+    bring your own API key, and the provider bills you per token.
+
+    - **Cluster operations through tools**: list, get, create, update, patch
+      and delete any resource kind, CRDs included, read pod logs, resize pods
+      in place, scale and restart workloads, and analyze warning events.
+    - **Human in the loop**: every change is shown as YAML for review and
+      applied only after you approve it, with the current state of the
+      resource kept, so that a change can be reverted.
+    - **MCP agent**: MCP servers, configured per cluster, run in Freelens and
+      reach the cluster the chat is open for.
+    - **Persistent sessions**: the transcript survives restarts, with a live
+      token counter and cost estimate.
   tier: official
   package: "@freelensapp/ai-extension"
   versions:
@@ -14,6 +35,7 @@ spec:
   homepage: https://github.com/freelensapp/freelens-ai-extension
   repository: https://github.com/freelensapp/freelens-ai-extension
   license: MIT
+  icon: icon.png
   authors:
   - name: Leopoldo Capuano
     url: https://github.com/leo-capvano

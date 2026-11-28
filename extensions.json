@@ -38,7 +38,8 @@
       },
       "spec": {
         "displayName": "AI",
-        "summary": "Automate complex tasks and enhance productivity through GenAI & LLMs.",
+        "summary": "Talk to your cluster in natural language with an AI agent that reads, explains and, with your approval, changes resources.",
+        "description": "Freelens AI brings a chat with an AI agent into Freelens, with one\nconversation per cluster. The agent reads, explains and, with your\napproval, changes Kubernetes resources, while the chat keeps the full\ncontext of the conversation.\n\nThe extension is a client of a large language model API: it talks the\nOpenAI Chat Completions and Responses APIs, to OpenAI directly or to any\nendpoint that implements them, such as an OpenAI-compatible gateway. You\nbring your own API key, and the provider bills you per token.\n\n- **Cluster operations through tools**: list, get, create, update, patch\n  and delete any resource kind, CRDs included, read pod logs, resize pods\n  in place, scale and restart workloads, and analyze warning events.\n- **Human in the loop**: every change is shown as YAML for review and\n  applied only after you approve it, with the current state of the\n  resource kept, so that a change can be reverted.\n- **MCP agent**: MCP servers, configured per cluster, run in Freelens and\n  reach the cluster the chat is open for.\n- **Persistent sessions**: the transcript survives restarts, with a live\n  token counter and cost estimate.\n",
         "tier": "official",
         "package": "@freelensapp/ai-extension",
         "versions": [
@@ -50,6 +51,7 @@
         "homepage": "https://github.com/freelensapp/freelens-ai-extension",
         "repository": "https://github.com/freelensapp/freelens-ai-extension",
         "license": "MIT",
+        "icon": "icon.png",
         "authors": [
           {
             "name": "Leopoldo Capuano",
@@ -70,7 +72,8 @@
       },
       "spec": {
         "displayName": "FluxCD",
-        "summary": "Integrates FluxCD support.",
+        "summary": "Dashboard, lists and details of the FluxCD resources, with actions to reconcile, suspend and resume them.",
+        "description": "Support for [FluxCD](https://fluxcd.io/), the continuous and progressive\ndelivery solutions for Kubernetes that keep the cluster state in sync with\nsources such as Git repositories, OCI artifacts and Helm charts.\n\nThe extension provides a dashboard, cluster pages, list views and detail\npanels for the FluxCD custom resources of the `fluxcd.controlplane.io`,\n`source.toolkit.fluxcd.io`, `source.extensions.fluxcd.io`,\n`kustomize.toolkit.fluxcd.io`, `helm.toolkit.fluxcd.io`,\n`image.toolkit.fluxcd.io` and `notification.toolkit.fluxcd.io` API groups.\nThe detail view shows the status conditions, the spec fields and the\nrelated objects. The menu of a resource reconciles, suspends and resumes\nit. While the extension is enabled, these resources are listed once, under\n\"FluxCD\", and left out of the Custom Resources tree of the sidebar.\n\n## Requirements\n\n- Kubernetes >= 1.24\n- Flux >= 2.0.0\n- flux-operator >= 0.6.0\n",
         "tier": "official",
         "package": "@freelensapp/fluxcd-extension",
         "versions": [
@@ -81,7 +84,74 @@
         ],
         "homepage": "https://github.com/freelensapp/freelens-fluxcd-extension",
         "repository": "https://github.com/freelensapp/freelens-fluxcd-extension",
-        "license": "MIT"
+        "license": "MIT",
+        "icon": "icon.png",
+        "authors": [
+          {
+            "name": "Freelens Authors",
+            "email": "freelens@freelens.app"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "for-claude"
+      },
+      "spec": {
+        "displayName": "Freelens for Claude",
+        "summary": "A Claude-powered chat per cluster that drives your own Claude Code installation with permission-gated Kubernetes tools.",
+        "description": "Freelens for Claude embeds a Claude-powered chat in Freelens, with one\nconversation per cluster. Claude answers questions about the selected\ncluster and can act on it, but only through a set of typed,\npermission-gated Kubernetes tools, never through an unrestricted shell.\n\nThe extension is a frontend to your own Claude Code installation. There is\nno provider selection and no API key to store: it spawns the Claude Code\nbinary already installed on your machine and inherits whatever\nauthentication it uses, so billing is whatever your Claude Code uses. The\nextension never sees your credentials.\n\nThis is a community project, not an official Anthropic product. The name\nuses the \"Claude\" trademark nominatively to describe what the extension\nworks with; it does not imply endorsement by or affiliation with\nAnthropic.\n\n## Requirements\n\n- Claude Code installed and logged in: run `claude` once in a terminal to\n  authenticate.\n",
+        "tier": "official",
+        "package": "@freelensapp/for-claude-extension",
+        "versions": [
+          {
+            "version": "1.0.0",
+            "freelens": "^2.0.0"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-for-claude-extension",
+        "repository": "https://github.com/freelensapp/freelens-for-claude-extension",
+        "license": "MIT",
+        "icon": "icon.png",
+        "authors": [
+          {
+            "name": "Freelens Authors",
+            "email": "freelens@freelens.app"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "gateway-api"
+      },
+      "spec": {
+        "displayName": "Gateway API",
+        "summary": "Overview, lists and details of the standard and experimental resources of the Kubernetes Gateway API.",
+        "description": "Support for the [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/),\nthe official Kubernetes project of expressive, extensible and role-oriented\ninterfaces for service networking, designed as the successor to the Ingress\nAPI.\n\nThe extension adds a \"Gateway API\" entry to the cluster menu, for the\nstandard and experimental resources of the `gateway.networking.k8s.io` and\n`gateway.networking.x-k8s.io` API groups:\n\n- **Overview**: one pie chart per installed kind with the number of objects\n  that are Ready, Not Ready, In Progress or Unknown, filtered by namespace,\n  and the events of the Gateway API objects.\n- **One list per kind**, with sort and search, in the newest API version\n  the cluster serves.\n- **Details** of every kind and version: the status conditions, the spec\n  fields and links to the referenced objects.\n- **One sidebar entry per kind**: the Gateway API kinds are listed once,\n  under \"Gateway API\", and left out of the Custom Resources tree.\n\n## Requirements\n\n- Kubernetes >= 1.26\n- The Gateway API CRDs installed in the cluster\n",
+        "tier": "official",
+        "package": "@freelensapp/gateway-api-extension",
+        "versions": [
+          {
+            "version": "1.0.0",
+            "freelens": "^2.0.0"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-gateway-api-extension",
+        "repository": "https://github.com/freelensapp/freelens-gateway-api-extension",
+        "license": "MIT",
+        "icon": "icon.png",
+        "authors": [
+          {
+            "name": "Freelens Authors",
+            "email": "freelens@freelens.app"
+          }
+        ]
       }
     },
     {
@@ -110,6 +180,44 @@
       "apiVersion": "freelens.app/v1",
       "kind": "MarketplaceExtension",
       "metadata": {
+        "name": "karpenter"
+      },
+      "spec": {
+        "displayName": "Karpenter",
+        "summary": "A visual interface to watch what Karpenter does to the nodes of a cluster, on AWS, Azure and GCP.",
+        "description": "Support for [Karpenter](https://karpenter.sh/), the open source node\nautoscaler that launches and removes the nodes of a Kubernetes cluster to\nfit its pods. The extension reads the Karpenter objects, the nodes, the\npods and the events of the cluster, and writes nothing to it.\n\nIt adds **Karpenter** to the cluster sidebar:\n\n- **Overview**: a dashboard with the nodes and their status, one card per\n  NodePool with its node class, instance types, limits, usage of CPU and\n  memory, its nodes and its recent events, and a filter by name, node\n  status, instance type and NodePool status.\n- **Node Claims**, **Node Pools** and **Node Overlays**, and the node\n  classes of the cloud: **EC2 Node Classes** on AWS, **AKS Node Classes**\n  on Azure, and **GCE Node Classes** and **GCE Custom Machine Types** on\n  GCP, as lists with their details.\n- A Karpenter section in the details of a node.\n\nIt follows the Freelens theme, light or dark, and updates while it is open,\nas Karpenter launches and removes nodes.\n",
+        "tier": "official",
+        "package": "@freelensapp/karpenter-extension",
+        "versions": [
+          {
+            "version": "2.4.0",
+            "freelens": "^2.0.0"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-karpenter-extension",
+        "repository": "https://github.com/freelensapp/freelens-karpenter-extension",
+        "license": "MIT",
+        "icon": "icon.png",
+        "authors": [
+          {
+            "name": "Alberto Lunghi",
+            "url": "https://github.com/albyrex"
+          },
+          {
+            "name": "Roberto Bandini",
+            "url": "https://github.com/robertobandini"
+          },
+          {
+            "name": "Piotr Roszatycki",
+            "url": "https://github.com/dex4er"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
         "name": "resource-map"
       },
       "spec": {
@@ -126,6 +234,36 @@
         "homepage": "https://github.com/freelensapp/freelens-resource-map-extension",
         "repository": "https://github.com/freelensapp/freelens-resource-map-extension",
         "license": "MIT"
+      }
+    },
+    {
+      "apiVersion": "freelens.app/v1",
+      "kind": "MarketplaceExtension",
+      "metadata": {
+        "name": "vals"
+      },
+      "spec": {
+        "displayName": "Vals",
+        "summary": "Lists and details of the ValsSecret and DbSecret resources of vals-operator, which syncs secrets from vals backends.",
+        "description": "Support for [vals-operator](https://github.com/digitalis-io/vals-operator),\nthe Kubernetes operator that syncs secrets from the backends of\n[vals](https://github.com/helmfile/vals), such as HashiCorp Vault, AWS\nSecrets Manager or GCP Secret Manager, into Kubernetes `Secret`s.\n\nThe extension adds a \"Vals\" entry to the cluster sidebar, with a list page\nand a details panel for each of the operator's resources:\n\n- **Vals Secrets**: the `Secret` that a `ValsSecret` writes, the `ref` of\n  every data source, the templates, the rollout targets, the conditions,\n  and a \"Refresh\" action that asks the operator to read the backend again.\n- **DB Secrets**: the `Secret` that a `DbSecret` writes, the Vault mount\n  and role that issue its credentials, and whether the operator renews\n  their lease.\n\nOf the objects that the operator writes, the extension reads the metadata\nonly: it never reads the data of a `Secret`, and shows the reference of a\nsecret, never its value.\n",
+        "tier": "official",
+        "package": "@freelensapp/vals-extension",
+        "versions": [
+          {
+            "version": "1.1.0",
+            "freelens": "^2.0.0"
+          }
+        ],
+        "homepage": "https://github.com/freelensapp/freelens-vals-extension",
+        "repository": "https://github.com/freelensapp/freelens-vals-extension",
+        "license": "MIT",
+        "icon": "icon.png",
+        "authors": [
+          {
+            "name": "Freelens Authors",
+            "email": "freelens@freelens.app"
+          }
+        ]
       }
     },
     {

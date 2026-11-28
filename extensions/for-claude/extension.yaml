@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: for-claude
+spec:
+  displayName: Freelens for Claude
+  summary: A Claude-powered chat per cluster that drives your own Claude Code installation with permission-gated Kubernetes tools.
+  description: |
+    Freelens for Claude embeds a Claude-powered chat in Freelens, with one
+    conversation per cluster. Claude answers questions about the selected
+    cluster and can act on it, but only through a set of typed,
+    permission-gated Kubernetes tools, never through an unrestricted shell.
+
+    The extension is a frontend to your own Claude Code installation. There is
+    no provider selection and no API key to store: it spawns the Claude Code
+    binary already installed on your machine and inherits whatever
+    authentication it uses, so billing is whatever your Claude Code uses. The
+    extension never sees your credentials.
+
+    This is a community project, not an official Anthropic product. The name
+    uses the "Claude" trademark nominatively to describe what the extension
+    works with; it does not imply endorsement by or affiliation with
+    Anthropic.
+
+    ## Requirements
+
+    - Claude Code installed and logged in: run `claude` once in a terminal to
+      authenticate.
+  tier: official
+  package: "@freelensapp/for-claude-extension"
+  versions:
+  - version: 1.0.0
+    freelens: ^2.0.0
+  homepage: https://github.com/freelensapp/freelens-for-claude-extension
+  repository: https://github.com/freelensapp/freelens-for-claude-extension
+  license: MIT
+  icon: icon.png
+  authors:
+  - name: Freelens Authors
+    email: freelens@freelens.app
