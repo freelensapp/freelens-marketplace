@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: gateway-api
+spec:
+  displayName: Gateway API
+  summary: Overview, lists and details of the standard and experimental resources of the Kubernetes Gateway API.
+  description: |
+    Support for the [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/),
+    the official Kubernetes project of expressive, extensible and role-oriented
+    interfaces for service networking, designed as the successor to the Ingress
+    API.
+
+    The extension adds a "Gateway API" entry to the cluster menu, for the
+    standard and experimental resources of the `gateway.networking.k8s.io` and
+    `gateway.networking.x-k8s.io` API groups:
+
+    - **Overview**: one pie chart per installed kind with the number of objects
+      that are Ready, Not Ready, In Progress or Unknown, filtered by namespace,
+      and the events of the Gateway API objects.
+    - **One list per kind**, with sort and search, in the newest API version
+      the cluster serves.
+    - **Details** of every kind and version: the status conditions, the spec
+      fields and links to the referenced objects.
+    - **One sidebar entry per kind**: the Gateway API kinds are listed once,
+      under "Gateway API", and left out of the Custom Resources tree.
+
+    ## Requirements
+
+    - Kubernetes >= 1.26
+    - The Gateway API CRDs installed in the cluster
+  tier: official
+  package: "@freelensapp/gateway-api-extension"
+  versions:
+  - version: 1.0.0
+    freelens: ^2.0.0
+  homepage: https://github.com/freelensapp/freelens-gateway-api-extension
+  repository: https://github.com/freelensapp/freelens-gateway-api-extension
+  license: MIT
+  icon: icon.png
+  authors:
+  - name: Freelens Authors
+    email: freelens@freelens.app

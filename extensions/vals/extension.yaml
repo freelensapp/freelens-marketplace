@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: vals
+spec:
+  displayName: Vals
+  summary: Lists and details of the ValsSecret and DbSecret resources of vals-operator, which syncs secrets from vals backends.
+  description: |
+    Support for [vals-operator](https://github.com/digitalis-io/vals-operator),
+    the Kubernetes operator that syncs secrets from the backends of
+    [vals](https://github.com/helmfile/vals), such as HashiCorp Vault, AWS
+    Secrets Manager or GCP Secret Manager, into Kubernetes `Secret`s.
+
+    The extension adds a "Vals" entry to the cluster sidebar, with a list page
+    and a details panel for each of the operator's resources:
+
+    - **Vals Secrets**: the `Secret` that a `ValsSecret` writes, the `ref` of
+      every data source, the templates, the rollout targets, the conditions,
+      and a "Refresh" action that asks the operator to read the backend again.
+    - **DB Secrets**: the `Secret` that a `DbSecret` writes, the Vault mount
+      and role that issue its credentials, and whether the operator renews
+      their lease.
+
+    Of the objects that the operator writes, the extension reads the metadata
+    only: it never reads the data of a `Secret`, and shows the reference of a
+    secret, never its value.
+  tier: official
+  package: "@freelensapp/vals-extension"
+  versions:
+  - version: 1.1.0
+    freelens: ^2.0.0
+  homepage: https://github.com/freelensapp/freelens-vals-extension
+  repository: https://github.com/freelensapp/freelens-vals-extension
+  license: MIT
+  icon: icon.png
+  authors:
+  - name: Freelens Authors
+    email: freelens@freelens.app

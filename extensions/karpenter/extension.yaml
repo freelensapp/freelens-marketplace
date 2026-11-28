@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/freelensapp/freelens-marketplace/main/schemas/marketplace-extension-v1.schema.json
+apiVersion: freelens.app/v1
+kind: MarketplaceExtension
+metadata:
+  name: karpenter
+spec:
+  displayName: Karpenter
+  summary: A visual interface to watch what Karpenter does to the nodes of a cluster, on AWS, Azure and GCP.
+  description: |
+    Support for [Karpenter](https://karpenter.sh/), the open source node
+    autoscaler that launches and removes the nodes of a Kubernetes cluster to
+    fit its pods. The extension reads the Karpenter objects, the nodes, the
+    pods and the events of the cluster, and writes nothing to it.
+
+    It adds **Karpenter** to the cluster sidebar:
+
+    - **Overview**: a dashboard with the nodes and their status, one card per
+      NodePool with its node class, instance types, limits, usage of CPU and
+      memory, its nodes and its recent events, and a filter by name, node
+      status, instance type and NodePool status.
+    - **Node Claims**, **Node Pools** and **Node Overlays**, and the node
+      classes of the cloud: **EC2 Node Classes** on AWS, **AKS Node Classes**
+      on Azure, and **GCE Node Classes** and **GCE Custom Machine Types** on
+      GCP, as lists with their details.
+    - A Karpenter section in the details of a node.
+
+    It follows the Freelens theme, light or dark, and updates while it is open,
+    as Karpenter launches and removes nodes.
+  tier: official
+  package: "@freelensapp/karpenter-extension"
+  versions:
+  - version: 2.4.0
+    freelens: ^2.0.0
+  homepage: https://github.com/freelensapp/freelens-karpenter-extension
+  repository: https://github.com/freelensapp/freelens-karpenter-extension
+  license: MIT
+  icon: icon.png
+  authors:
+  - name: Alberto Lunghi
+    url: https://github.com/albyrex
+  - name: Roberto Bandini
+    url: https://github.com/robertobandini
+  - name: Piotr Roszatycki
+    url: https://github.com/dex4er
